@@ -12,9 +12,12 @@ public class Blog
 
     [Display(Name = "Create Date")]
     [DataType(DataType.Date)]
-    public DateTime CreateDate { get; set; }
+    public DateTime CreateDate { get; set; } = DateTime.Now;
 
     [Display(Name = "Update Date")]
     [DataType(DataType.Date)]
-    public DateTime UpdateDate { get; set; }
+    public DateTime? UpdateDate { get; set; }
+
+    [Display(Name = "Number of Like")]
+    public string? Location {  get; set; }
 }

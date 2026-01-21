@@ -26,6 +26,7 @@ public static class SeedData
                     Content = "Si vis pacem, para bellum",
                     CreateDate = DateTime.Today,
                     UpdateDate = DateTime.Today,
+                    Location = "NYC Continental",
                 },
                 new Blog
                 {
