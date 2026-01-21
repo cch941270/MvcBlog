@@ -18,6 +18,5 @@ public class Blog
     [DataType(DataType.Date)]
     public DateTime? UpdateDate { get; set; }
 
-    [Display(Name = "Number of Like")]
     public string? Location {  get; set; }
 }
