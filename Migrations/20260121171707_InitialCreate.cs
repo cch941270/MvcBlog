@@ -20,7 +20,8 @@ namespace MvcBlog.Migrations
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Content = table.Column<string>(type: "TEXT", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    UpdateDate = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    Location = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -11,7 +11,7 @@ using MvcBlog.Data;
 namespace MvcBlog.Migrations
 {
     [DbContext(typeof(MvcBlogContext))]
-    [Migration("20260121162232_InitialCreate")]
+    [Migration("20260121171707_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -33,11 +33,14 @@ namespace MvcBlog.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Location")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
