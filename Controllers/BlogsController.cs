@@ -20,9 +20,22 @@ namespace MvcBlog.Controllers
         }
 
         // GET: Blogs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Blog.ToListAsync());
+            if (_context.Blog == null)
+            {
+                return Problem("Entity set 'MvcBlogContext.Blog'  is null.");
+            }
+
+            var blogs = from m in _context.Blog
+                        select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                blogs = blogs.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
+            }
+
+            return View(await blogs.ToListAsync());
         }
 
         // GET: Blogs/Details/5
