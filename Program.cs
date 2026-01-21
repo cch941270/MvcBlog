@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MvcBlog.Data;
+using MvcBlog.Models;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MvcBlogContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("MvcBlogContext") ?? throw new InvalidOperationException("Connection string 'MvcBlogContext' not found.")));
@@ -9,6 +10,13 @@ builder.Services.AddDbContext<MvcBlogContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
