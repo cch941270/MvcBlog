@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcBlog.Models;
 
@@ -9,9 +10,11 @@ public class Blog
 
     public required string Content { get; set; }
 
+    [Display(Name = "Create Date")]
     [DataType(DataType.Date)]
     public DateTime CreateDate { get; set; }
 
+    [Display(Name = "Update Date")]
     [DataType(DataType.Date)]
     public DateTime UpdateDate { get; set; }
 }
