@@ -9,6 +9,8 @@ builder.Services.AddDbContext<MvcBlogContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddValidation();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
